@@ -23,19 +23,19 @@ const Header = (props) => {
 
                 <div className='nav-middle'>
                         <form className='search-form' onSubmit={searchSubmit}>
-                            <input style={{color: team == 'hornets' ? '#00788C' : ''}} type='search' className='nav-search' id='search' name='search' placeholder='Search Articles...'></input>
+                            <input style={{color: team == 'hornets' ? '#00788C' : ''}} autoComplete='false' type='search' className='nav-search' id='search' name='search' placeholder='Search Articles...'></input>
                         </form>
                 </div>
                 
                 <div className='nav-right'>
                     <ul className='nav-links'>
-                        <Link className={(team == 'hornets' ? 'hornets' : '')} href='/Panthers'>Panthers</Link>
-                        <Link className={(team == 'hornets' ? 'hornets' : '')} href='/Hornets'>Hornets</Link>
-                        <Link className={(team == 'hornets' ? 'hornets' : '')} href='/CharlotteFC'>Charlotte FC</Link>
+                        <Link className={(team == 'hornets' ? 'hornets' : '')} to='/Panthers'>Panthers</Link>
+                        <Link className={(team == 'hornets' ? 'hornets' : '')} to='/Hornets'>Hornets</Link>
+                        <Link className={(team == 'hornets' ? 'hornets' : '')} to='/CharlotteFC'>Charlotte FC</Link>
             
                         {isLoggedIn && ( <Link className={(team == 'hornets' ? 'hornets' : '')} onClick={logOut}>LogOut</Link> )}
 
-                        {!isLoggedIn && ( <Link className={(team == 'hornets' ? 'hornets' : '')} onClick={logIn}>LogIn</Link> )}
+                        {!isLoggedIn && ( <Link className={(team == 'hornets' ? 'hornets' : '')} to='/register' onClick={logIn}>LogIn</Link> )}
                     </ul>
                     
                     <div className={('burger' + (team == 'hornets' ? ' hornets' : ''))}>
