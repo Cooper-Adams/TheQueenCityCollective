@@ -3,18 +3,11 @@ import React from 'react'
 import '../styles/Scroller.css'
 
 const Scroller = (props) => {
-    let articles = []
     let carouselContent = []
 
-    //Populate articles from MongoDB here
+    carouselContent.push(props.articles.map((article, indx) => {
+        let parsedDate = new Date(article.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })
 
-    if (articles.length == 0) {
-        return (
-            <h3 className='empty-articles'>No articles found.</h3>
-        )
-    }
-
-    carouselContent.push(articles.map((article, indx) => {
         return (
             <>
                 <Link className='la-article-link' to={('/' + article.category + '/' + article.slug)}>
@@ -22,11 +15,7 @@ const Scroller = (props) => {
                         <img className='la-image' src={('/' + article.category + '.png')} alt={('Logo for the ' + article.category + ' category')}></img>
                         <div className='la-top'>
                             <h4 className='la-title'>{article.title}</h4>
-                            <span style='color: darkgray;'>{article.createdAt.toLocaleDateString('en-US', {
-                                day: 'numeric',
-                                month: 'short',
-                                year: 'numeric'
-                            })}</span>
+                            <span style={{color: 'darkgray'}}>{parsedDate}</span>
                         </div>
                         <div className='la-bottom'>
                             <p>{article.description}</p>
