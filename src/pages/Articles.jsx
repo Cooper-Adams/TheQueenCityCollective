@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import React, { useState } from 'react'
 import Scroller from '../components/Scroller'
-import SideArticles from '../components/SideArticles'
 import '../styles/Articles.css'
 
 const Articles = () => {
