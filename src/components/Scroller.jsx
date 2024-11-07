@@ -38,7 +38,7 @@ const Scroller = (props) => {
                         </ul>
                     </section>
 
-                    <NewsBox />
+                    <NewsBox articles={props.articles}/>
                 </div>
             </div>
         </>
