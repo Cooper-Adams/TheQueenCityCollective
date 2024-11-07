@@ -25,11 +25,7 @@ const Articles = () => {
                 <h2>Placeholder</h2>
             }
 
-            {!isPending && <>
-                <Scroller articles={data.body}/>
-
-                <SideArticles articles={data.body}/>
-            </>}
+            {!isPending && <Scroller articles={data.body}/> }
 
             <Footer team={teamName}/>
         </>
