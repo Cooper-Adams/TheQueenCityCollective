@@ -11,11 +11,11 @@ const Scroller = (props) => {
         else {
             return (
                 <>
-                    <li className={'slide' + (article.category == 'Hornets' ? ' hornetBG' : article.category == 'Panthers' ? 'pantherBG' : 'cltfcBG')} style={{backgroundImage: ('url(/' + article.category + '.png')}}>
-                        <div className="article-info-box">
-                            <div className="card-title"> {article.title} </div>
+                    <li key={indx} className={'slide' + (article.category == 'Hornets' ? ' hornetBG' : article.category == 'Panthers' ? 'pantherBG' : 'cltfcBG')} style={{backgroundImage: ('url(/' + article.category + '.png')}}>
+                        <div key={indx} className='article-info-box'>
+                            <div className='card-title'> {article.title} </div>
 
-                            <div className="card-desc"> {article.description} </div>
+                            <div className='card-desc'> {article.description} </div>
 
                             <Link className='article-link' to={'/' + article.category + '/' + article.slug}>Continue Reading &#8594</Link>
 
