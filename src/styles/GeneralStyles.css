@@ -12,27 +12,23 @@ body {
   min-height: 100vh;
 }
   
-div {
-  box-sizing: border-box;
+/* Page content that occupies the body */
+.body-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  margin: 0 5rem;
 }
   
-  /* Page content that occupies the body */
-  .body-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    margin: 20px 80px 0 80px;
-  }
-  
-  .slider-wrapper {
-    position: relative;
-    display: flex;
-    width: 70%;
-    -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.4);;
-    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.4);;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.4);;
-    border-radius: 5px;
-  }
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  width: 70%;
+  -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.4);;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.4);;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.4);;
+  border-radius: 5px;
+}
   
   .slides-container {
     display: flex;
