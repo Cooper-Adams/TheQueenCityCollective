@@ -1,25 +1,23 @@
 import { Link } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
 import React from 'react'
 import '../styles/NewsBox.css'
 
 const NewsBox = (props) => {
-    let listContent = []
-
-    listContent.push(props.articles.map((article, indx) => {
-        if (indx <= 3) { return }
-        else { return ( <Link className='headline-title' to={('/' + article.category + '/' + article.slug)}>{article.title}</Link> ) }
-    }))
+    let listContent = props.articles.map((article, indx) => {
+        if (indx > 3) { 
+            return ( <Link key={uuid()} className='headline-title' to={('/' + article.category + '/' + article.slug)}>{article.title}</Link> )
+        }
+    })
 
     return (
-        <>
-            <div className='news-box'>
-                <h3>Headlines</h3>
+        <div className='news-box'>
+            <h3>Headlines</h3>
 
-                {listContent}
+            {listContent}
 
-                <Link className='headline-title all-articles' to={'/allarticles'}>All Articles</Link>
-            </div>
-        </>
+            <Link className='headline-title all-articles' to={'/allarticles'}>All Articles</Link>
+        </div>
     )
 }
 
