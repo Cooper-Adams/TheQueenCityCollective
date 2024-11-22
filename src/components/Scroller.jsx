@@ -1,41 +1,37 @@
 import { Link } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
 import NewsBox from './NewsBox'
 import React from 'react'
 import '../styles/Scroller.css'
 
 const Scroller = (props) => {
-    let slides = []
-
-    slides.push(props.articles.map((article, indx) => {
-        if (indx > 3) { return }
-        else {
+    let slides = props.articles.map((article, indx) => {
+        if (indx <= 3) {
             return (
-                <>
-                    <li key={indx} className={'slide' + (article.category == 'Hornets' ? ' hornetBG' : article.category == 'Panthers' ? 'pantherBG' : 'cltfcBG')} style={{backgroundImage: ('url(/' + article.category + '.png')}}>
-                        <div key={indx} className='article-info-box'>
-                            <div className='card-title'> {article.title} </div>
+                <div key={uuid()} className={'slide' + (article.category == 'Hornets' ? ' hornetBG' : article.category == 'Panthers' ? 'pantherBG' : 'cltfcBG')} style={{backgroundImage: ('url(/' + article.category + '.png')}}>
+                    <div className='article-info-box'>
+                        <div className='card-title'> {article.title} </div>
 
-                            <div className='card-desc'> {article.description} </div>
+                        <div className='card-desc'> {article.description} </div>
 
-                            <Link className='article-link' to={'/' + article.category + '/' + article.slug}>Continue Reading &#8594</Link>
+                        <Link className='article-link' to={'/' + article.category + '/' + article.slug}>Continue Reading &#8594</Link>
 
-                            <button className='slide-arrow left' id='slide-arrow-prev'>&#8249</button>
-                            <button className='slide-arrow right' id='slide-arrow-next'>&#8250</button>
-                        </div>
-                    </li>
-                </>
+                        <button className='slide-arrow left' id='slide-arrow-prev'>&#8249</button>
+                        <button className='slide-arrow right' id='slide-arrow-next'>&#8250</button>
+                    </div>
+                </div>
             )
         }
-    }))
+    })
 
     return (
         <>
             <div className='container'>
                 <div className='body-content'>
                     <section className='slider-wrapper'>
-                        <ul className='slides-container' id='slides-container'>
+                        <div className='slides-container' id='slides-container'>
                             {slides}
-                        </ul>
+                        </div>
                     </section>
 
                     <NewsBox articles={props.articles}/>
